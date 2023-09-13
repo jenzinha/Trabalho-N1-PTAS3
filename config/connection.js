@@ -2,13 +2,13 @@ const { Sequelize } = require('sequelize');
 const config = require('../config/config')
 require('dotenv').config();
 
-const sequelize = new Sequelize( config );
+const sequelize = new Sequelize( config.development );
 
 try {
   sequelize.authenticate();
-  console.log(' conectado com banco de dados ');
+  console.log(' autenticado com sucesso ');
 } catch (error) {
-  console.error(' conexão falhou  ', error);
+  console.error(' autenticação falhou ', error);
 }
 
 module.exports = { Sequelize, sequelize };
