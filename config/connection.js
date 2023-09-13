@@ -6,9 +6,9 @@ const sequelize = new Sequelize( config.development );
 
 try {
   sequelize.authenticate();
-  console.log(' autenticado com sucesso ');
+  console.log(' conectado ao banco de dados com sucesso ');
 } catch (error) {
-  console.error(' autenticação falhou ', error);
+  console.error(' conexão ao banco de dados falhou ', error);
 }
 
 module.exports = { Sequelize, sequelize };
