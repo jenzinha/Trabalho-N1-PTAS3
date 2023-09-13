@@ -2,30 +2,30 @@ const User = require('../models/User');
 const secret = require('../config/auth.json');
 const jwt = require('jsonwebtoken');
 
-/*
+
 const createUser = async (req, res) => {
-    const {            } = req.body;
+    const {name, password, email} = req.body;
     await User.create({
-       
-
-
+        name: name,
+        password: password,
+        email: email   
     }).then(() => {
-        res.json('         ');
-        console.log('           ');
+        res.json('Cadastro de usuário realizado com sucesso!');
+        console.log('Cadastro de usuário realizado com sucesso!');
     }).catch((erro) => {
-        res.json('             ');
-        console.log(`  : ${erro}`);
+        res.json('Falha no cadastro!');
+        console.log(`Ops deu erro: ${erro}`); 
     })
 }
 const findUsers = async (req, res) => {
-    const     = await User.findAll();
+    const users = await User.findAll();
     try {
-        res.json(    );
+        res.json(users);
     } catch (error) {
         res.status(404).json("Ocorreu um erro na busca!");
     };
 }
-
+/*
 const deleteUser = async (req, res) => {
     const id = parseInt(req.params.id);
     try {
@@ -84,7 +84,6 @@ const authenticatedUser = async (req, res) => {
         return res.json("");
     }
 }
-
-
-module.exports = { createUser, findUsers, deleteUser, updateUser, authenticatedUser };
 */
+
+module.exports = { createUser, findUsers };
