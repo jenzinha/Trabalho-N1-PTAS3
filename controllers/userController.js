@@ -63,7 +63,7 @@ const updateUser = async (req, res) => {
         res.status(404).json(" erro na execução!");
     }
 }
-/*
+
 const authenticatedUser = async (req, res) => {
     const {email, password} = req.body;
     try {
@@ -89,6 +89,5 @@ const authenticatedUser = async (req, res) => {
         return res.json("usuário não encontrado");
     }
 }
-*/
 
-module.exports = { createUser, findUsers, deleteUser, updateUser};
+module.exports = { createUser, findUsers, deleteUser, updateUser, authenticatedUser};
