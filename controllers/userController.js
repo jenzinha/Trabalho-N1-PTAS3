@@ -40,14 +40,16 @@ const deleteUser = async (req, res) => {
     }
 }
 
-/*
+
 const updateUser = async (req, res) => {
     const id = parseInt(req.params.id);
-    const {       } = req.body;
+    const { name, password, email } = req.body;
     try {
         await User.update(
             {
-               
+                name: name,
+                password: password,
+                email: email
             },
             {
                 where: {
@@ -55,12 +57,13 @@ const updateUser = async (req, res) => {
                 }
             }
         ).then(() => {
-            res.json("            ");
+            res.json(" usuário atualizado! ");
         })
     } catch (error) {
-        res.status(404).json("                !");
+        res.status(404).json(" erro na execução!");
     }
 }
+/*
 const authenticatedUser = async (req, res) => {
     const {email, password} = req.body;
     try {
@@ -88,4 +91,4 @@ const authenticatedUser = async (req, res) => {
 }
 */
 
-module.exports = { createUser, findUsers, deleteUser};
+module.exports = { createUser, findUsers, deleteUser, updateUser};
