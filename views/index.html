@@ -9,6 +9,42 @@
 
 <body>
     <h1>API - USER</h1>
+    <h2>Tecnologias usadas</h2>
+
+<!-------------------POST------------------------------------------------------>
+    <h2>routes.post('/user', userController.createUser);</h2>
+
+    <p>Router: Esse objeto é usado para definir rotas e manipula as solicitações HTTP para essass rotas</p>
+    <p>Post: É usado para enviar dados para o servidor, muitas vezes para criar novas rotas</p>
+    <p>userController: Função responsavel por processar a solicitação e realizar as ações necessárias</p>
+
+    <p>Essa função é responsavel pela criação de usuario no banco de dados. Usado para enviar dados confidenciais.</p>
+<!-------------------GET------------------------------------------------------>
+    <h2>routes.get('/users', userController.findUsers);</h2>
+
+    <p>Get: Usado para recuperar uma informação. Verbo padrão para enviar dados quando submetemos um formulario HTTP</p>
+    <p>Basicamente o get é usado para enviar as informações menos sensiveis </p>
+
+<!-------------------DELETE------------------------------------------------------>
+    <h2>routes.delete('/user/:id', userController.deleteUser);</h2>
+
+    <p>Delete: Usado para deletar componentes</p>
+    <p>deleteUser: pega a função do userController, essa funçao especifica é responsavel por deletar</p>
+
+<!-------------------PUT------------------------------------------------------>
+    <h2>routes.put('/user/:id', userController.updateUser);</h2>
+
+    <p>Put: É usado para atualizar ou modificar recursos no servidor.</p>
+    <p>Ele basicamente atualiza e faz modificações em informações ja criadas.</p>
+
+<!-------------------POST2------------------------------------------------------>
+
+    <h2>routes.post('/user/authenticated', userController.authenticatedUser);</h2>
+
+    <p>POST: É usado para atualizar ou modificar recursos no servidor.</p>
+    <p>'/user/authenticated': A rota será acionada quando uma solicitação POST for feita para a URL com o caminho "/user/authenticated".</p>
+    <p>userController.authenticatedUser: Isso se refere à uma função controlada que será executada quando a rota dor acessada.</p>
+    <p>A função controladora é resposavel por lidar com a logica da rota que se trata da autenticação do user</p>
 </body>
 
 </html>
