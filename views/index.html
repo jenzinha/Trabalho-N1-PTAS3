@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <title>API - Users</title>
 </head>
 
 <body>
+    <div class="pagina">
     <h1>API - USER</h1>
     <h2>Tecnologias usadas</h2>
 
 <!-------------------POST------------------------------------------------------>
     <h2>routes.post('/user', userController.createUser);</h2>
 
-    <p>Router: Esse objeto é usado para definir rotas e manipula as solicitações HTTP para essass rotas</p>
+    <p>Router: Esse objeto é usado para definir rotas e manipular as solicitações HTTP para essass rotas</p>
     <p>Post: É usado para enviar dados para o servidor, muitas vezes para criar novas rotas</p>
     <p>userController: Função responsavel por processar a solicitação e realizar as ações necessárias</p>
 
@@ -45,6 +47,58 @@
     <p>'/user/authenticated': A rota será acionada quando uma solicitação POST for feita para a URL com o caminho "/user/authenticated".</p>
     <p>userController.authenticatedUser: Isso se refere à uma função controlada que será executada quando a rota dor acessada.</p>
     <p>A função controladora é resposavel por lidar com a logica da rota que se trata da autenticação do user</p>
-</body>
 
+<!-------------------EXPRESS------------------------------------------------------>
+
+    <h2>Express</h2>
+
+    <p>Express: Usamos o express que é uma ferramenta para desenvolvedores que desejam criar aplicativos web e APIs de forma rápida e eficiente.</p>
+    <p>Alguns dos seus principais propositos são:</p>
+    <ul>
+        <li>Desenvolvimento de aplicativos web</li>
+        <li>Gerenciamento de rotas</li>
+        <li>Middleware</li>
+        <li>-_Integração com bancos de dados_-</li>
+    </ul>
+<!-------------------POSTGRESS------------------------------------------------------>
+    
+    <h2>Postgress</h2>
+
+    <p>Postgress: Utilizamos o postgres que é um banco de dados relacional.</p>
+    <p>Ele é usado para armazenar, gerenciar e recuperar dados.</p>
+    <p>Algumas das principais finalidades dele:</p>
+
+    <ul>
+        <li>-_Armazenamento de dados_-</li>
+        <li>Análise de dados</li>
+        <li>Segurança e conformidade</li>
+    </ul>
+<!-------------------NODEMON------------------------------------------------------>
+
+    <h2>Nodemon</h2>
+
+    <p>Nodemon: Ele é uma biblioteca que ajuda no desenvolvimento de sistemas que usam o node.js reiniciando automaticamente o servidor.</p>
+    <p>Algumas das suas principais funções são:</p>
+
+    <ul>
+        <li>Reinicialização automática do servidor</li>
+        <li>Recarregamento automático de aplicativos</li>
+        <li>Facilita o desenvolvimento em tempo real</li>
+    </ul>
+<!-------------------SQLCLI------------------------------------------------------>
+
+    <h2>SQL-Client</h2>
+
+    <p>SQL-Client: É uma ferramenta que permite que o client se conecte a um banco de dados e interaja com ele</p>
+    <p>Sua principal finalidade é facilitar a administração, consultoria e manipulação dos dados armazenados no banco</p>
+    <p>Algumas de suas principais caracteristicas são:</p>
+
+    <ul>
+        <li>-_Consulta de dados_-</li>
+        <li>-_Inserção, atualização e exclusão de dados_-</li>
+        <li>-_Gerenciamento de bancos de dados_-</li>
+    </ul>
+
+</div>
+</body>
 </html>
