@@ -1,13 +1,16 @@
 const User = require('../models/User');
-const secret = require('../config/auth.json');
 const jwt = require('jsonwebtoken');
+const bcrypt = require("bcrypt")
+//require('dotenv').config();
 
 
 const createUser = async (req, res) => {
     const {name, password, email} = req.body;
+    const newPassword = await bcrypt.hash(password, 10);
+
     await User.create({
         name: name,
-        password: password,
+        password: newPassword,
         email: email   
     }).then(() => {
         res.json('Cadastro de usuário realizado com sucesso!');
@@ -69,15 +72,19 @@ const authenticatedUser = async (req, res) => {
     try {
         const isUserAuthenticated = await User.findOne({
             where: {
-             email: email,
-            password: password   
+             email: email, 
             }
         })
+        if (!isUserAuthenticated){
+            return res.status(401).json("Usuário não corresponde!");
+        }
+        const response = await bcrypt.compare(password, isUserAuthenticated.password);
+        if (response){
         const token = jwt.sign({
             name: isUserAuthenticated.name,
             email: isUserAuthenticated.email 
         },
-            secret.secret, {
+            process.env.SECRET, {
             expiresIn: 86400,
         })
         return res.json({
@@ -85,7 +92,12 @@ const authenticatedUser = async (req, res) => {
             email: isUserAuthenticated.email,
             token: token
         });
-    } catch (error) {
+    }
+
+    else{
+        return res.json("usuário não encontrado")
+    }
+ } catch (error) {
         return res.json("usuário não encontrado");
     }
 }
