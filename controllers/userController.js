@@ -70,9 +70,12 @@ const authenticatedUser = async (req, res) => {
     try {
         const isUserAuthenticated = await User.findOne({
             where: {
-             email: email
+             email: email,
             }
         })
+        if(!isUserAuthenticated){
+            return res.json("usuário não autenticado");
+        }
         const validpassword =  await bcrypt.compare(password, isUserAuthenticated.password);
        
         if (validpassword) {
@@ -92,7 +95,7 @@ const authenticatedUser = async (req, res) => {
         return res.json("usuário não autenticado");
     }
 } catch (error) {
-        return res.json("usuário não encontrado");
+        return res.json("Usuário não encontrado");
     }
 }
 
