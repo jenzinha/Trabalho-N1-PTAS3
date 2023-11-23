@@ -1,3 +1,4 @@
+require('dotenv').config();
 const User = require('../models/User');
 const secret = require('../config/auth.json');
 const jwt = require('jsonwebtoken');
@@ -45,11 +46,12 @@ const deleteUser = async (req, res) => {
 const updateUser = async (req, res) => {
     const id = parseInt(req.params.id);
     const { name, password, email } = req.body;
+    const newpassword = await bcrypt.hash(password, 10);
     try {
         await User.update(
             {
                 name: name,
-                password: password,
+                password: newpassword,
                 email: email
             },
             {
@@ -82,7 +84,7 @@ const authenticatedUser = async (req, res) => {
         const token = jwt.sign({
            id: email
         },
-            secret.secret, {
+        process.env.SECRET, {
             expiresIn: 86400,
         })
         res.cookie('token', token, {httpOnly: true}).json({
